@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> --> 
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Hazelflow</title>
@@ -12,10 +15,12 @@
   <body>
     <div class="wrapper">
       <div class="header">
-        <div class="header__container">
+        <div class="header__container container">
           <div class="header__row">
             <div class="header__logo logo">
-              <a href="#home"><img loading="lazy" src="images/icons/logo.svg" alt="logo" /></a>
+              <a href="#home">
+                <img loading="lazy" src="images/icons/logo.svg" alt="logo" />
+              </a>
             </div>
 
             <nav class="header__nav">
@@ -26,7 +31,7 @@
                 <li class="header__link"><a href="#faqs">FAQs</a></li>
                 <button class="header__contact">
                   Contact us
-                  <img src="images/arrow-right" alt="arrow-right" />
+                  <img src="images/icons/arrow-right.svg" alt="arrow-right" />
                 </button>
               </ul>
             </nav>
@@ -50,16 +55,51 @@
       <main>
         <div class="intro">
           <div class="intro__inner">
-            <h1 class="intro__title"></h1>
-            <p class="intro__subtitle"></p>
-
+            <div class="intro__container container">
+            <h1 class="intro__title">Translating 
+              <div class="intro__title-img">
+                <img src="images/icons/blockchain.svg" alt="text-icon">
+              </div> technology into human language </h1>
+            <p class="intro__subtitle">for techies, degens, and newcomers</p>
             <button class="intro__btn" #blank="">
-              Start Project
-              <img src="images/icons/arrow-right.svg" alt="arrow" class="intro__btn-img" />
+              Scroll Down
+              <img src="images/icons/arrow-down.svg" alt="arrow-down" class="intro__btn-img" />
             </button>
 
-            <div class="intro__trusted"></div>
+            <div class="intro__trusted">
+              <p class="intro__trusted-by">trusted by</p>
+              <div class="intro__swiper swiper">
+                <div class="intro__slider swiper-wrapper">
+                  <div class="intro__slide swiper-slide " data-swiper-autoplay="2000">
+                  <img class="intro__slide-img" src="images/intro/1.svg" alt="partner-logo">
+                  </div>
+                  <div class="intro__slide swiper-slide" data-swiper-autoplay="2000">
+                    <img class="intro__slide-img" src="images/intro/2.svg" alt="partner-logo">
+                  </div>
+                  <div class="intro__slide swiper-slide" data-swiper-autoplay="2000">
+                    <img class="intro__slide-img" src="images/intro/3.svg" alt="partner-logo">
+                  </div>
+                  <div class="intro__slide swiper-slide" data-swiper-autoplay="2000">
+                    <img class="intro__slide-img" src="images/intro/4.svg" alt="partner-logo">
+                  </div>
+                  <div class="intro__slide swiper-slide" data-swiper-autoplay="2000">
+                    <img class="intro__slide-img" src="images/intro/5.svg" alt="partner-logo">
+                  </div>
+                  <div class="intro__slide swiper-slide" data-swiper-autoplay="2000">
+                    <img class="intro__slide-img" src="images/intro/6.svg" alt="partner-logo">
+                  </div>
+                  <div class="intro__slide swiper-slide" data-swiper-autoplay="2000">
+                    <img class="intro__slide-img" src="images/intro/7.svg" alt="partner-logo">
+                  </div>
+                  <div class="intro__slide swiper-slide" data-swiper-autoplay="2000">
+                    <img class="intro__slide-img" src="images/intro/8.svg" alt="partner-logo">
+                  </div>
+                </div>
+              </div>
+            </div>
+           </div>
           </div>
+       
         </div>
 
         <div class="problem">
@@ -75,7 +115,7 @@
                     <img class="problem__item-ico" src="images/icons/1.jpg" alt="ico" />
                   </div>
                   <button class="problem__item-btn">
-                    <img src="" alt="" />
+                    <img src="images/problem/1.svg" alt="icon" />
                   </button>
                   <a href="#" class="problem__item-link">...</a>
                 </div>
