@@ -828,5 +828,36 @@ h5 {
   right: 65px;
 }
 
+.faqs {
+  background-color: #171718;
+  color: #fff;
+  padding: 100px 0 160px;
+}
+.faqs__title {
+  max-width: 627px;
+  width: 100%;
+  font-size: 80px;
+  line-height: 92%;
+  margin-bottom: 48px;
+}
+.faqs__title img {
+  display: inline-block;
+  max-width: 177px;
+  width: 100%;
+  max-height: 66px;
+  height: 100%;
+}
+.faqs__item-box {
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 29px;
+  border: 1px solid #212122;
+  border-radius: 10%;
+  margin-bottom: 8px;
+}
+.faqs__item-text {
+  display: none;
+}
+
 /* -------------------footer ------------------------------------------*/
 /* -------------------/footer ------------------------------------------*/

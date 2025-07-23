@@ -921,9 +921,24 @@ h5 {
 .swiper-button-next {
 }
 .faqs {
+  background-color: #171718;
+  color: $primary;
+  padding: 100px 0 160px;
   // .faqs__title
 
   &__title {
+    max-width: 627px;
+    width: 100%;
+    font-size: 80px;
+    line-height: 92%; 
+    margin-bottom: 48px;
+    img{
+      display: inline-block; 
+      max-width: 177px;
+      width: 100%;
+      max-height: 66px;
+      height: 100%;
+    }
   }
 
   // .faqs__accordeon
@@ -944,11 +959,18 @@ h5 {
   // .faqs__item-box
 
   &__item-box {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 29px;
+    border: 1px solid #212122;
+    border-radius: 10%;
+    margin-bottom: 8px;
   }
 
   // .faqs__item-name
 
   &__item-name {
+    
   }
 
   // .faqs__item-img
@@ -959,6 +981,7 @@ h5 {
   // .faqs__item-text
 
   &__item-text {
+    display: none;
   }
 }
 .footer {
