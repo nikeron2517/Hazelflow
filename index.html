@@ -4,9 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com"> -->
-    <!-- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <title>Hazelflow</title>
@@ -44,7 +41,8 @@
           <!-- MobNav -->
           <div class="mobile-nav">
             <button class="mobile-nav__close" aria-label="Close menu">
-              <img src="images/icons/X.svg" alt="Close-icon" />
+              <span class="cross-line"></span>
+              <span class="cross-line"></span>
             </button>
             <div class="mobile-nav__item">
               <ul class="header__list">
@@ -62,6 +60,9 @@
 
     <main>
       <div class="intro">
+        <div class="cloud cloud-left"></div>
+        <div class="cloud cloud-right"></div>
+        <div class="cloud cloud-top"></div>
         <div class="intro__inner">
           <div class="intro__container container">
             <h1 class="intro__title">
@@ -110,7 +111,7 @@
         </div>
       </div>
 
-      <div class="problem">
+      <div class="problem" id="problem">
         <div class="problem__container container">
           <h2 class="problem__title title">The <img src="images/text/problem-text.svg" alt="text-icon" /></h2>
           <p class="problem__subtitle">
@@ -294,7 +295,7 @@
         </div>
       </div>
 
-      <div class="about">
+      <div class="about" id="about">
         <h3 class="about__title container">
           We are a team of researchers and writers <img src="images/about/about-note.png" alt="note-icon" /> with over 5 years of experience in
           research <img src="images/about/about-search.png" alt="search-icon" />, analytics, and the creation of technical, product, and educational
@@ -354,7 +355,7 @@
         </div>
       </div>
 
-      <div class="workflow">
+      <div class="workflow" id="workflow">
         <div class="workflow__container container">
           <h4 class="workflow__title title">Our <img src="images/text/workflow-text.svg" alt="text-icon" /></h4>
           <div class="workflow__inner">
@@ -406,7 +407,7 @@
         </div>
       </div>
 
-      <div class="trusted-teams">
+      <div class="trusted-teams container">
         <h4 class="trusted-teams__title">Trusted by <img src="images/leading/leading.png" alt="img" /> blockchain infrastructure teams</h4>
 
         <div class="trusted-teams__partners">
@@ -463,7 +464,7 @@
         </div>
       </div>
 
-      <div class="materials">
+      <div class="materials" id="materials">
         <div class="materials__container container">
           <h4 class="materials__title title">Published <img src="images/text/materials-text.png" alt="" /></h4>
           <p class="materials__subtitle">
@@ -541,7 +542,7 @@
         </div>
       </div>
 
-      <div class="faqs">
+      <div class="faqs" id="faqs">
         <div class="faqs__container container">
           <h4 class="faqs__title">
             Frequently
@@ -674,6 +675,11 @@
             <p class="footer__form-subname">Show Me the Form!</p>
             <img class="footer__form-subico" src="images/icons/arrow-top-rght.svg" alt="form-icon" />
           </a>
+          <!-- Мобильная версия кнопки формы -->
+          <a class="footer__form-mobile" href="https://form.typeform.com/to/MGi2daKK">
+            <img class="footer__form-ico" src="images/icons/form-icon.svg" alt="form-icon" />
+            <p class="footer__form-name">Fill the Form</p>
+          </a>
         </div>
         <div class="footer__or"><span>or</span></div>
 
@@ -683,9 +689,14 @@
               <img class="footer__item-ico" src="images/icons/email.svg" alt="email-icon" />
               <p class="footer__item-text">Send us an Email</p>
             </div>
-            <a class="footer__item-link" href="#">
+            <a class="footer__item-link" href="#" data-copy-email>
               <p class="footer__item-name">info@hazelflow.xyz</p>
               <img class="footer__item-copy" src="images/icons/copy.svg" alt="copy-icon" />
+            </a>
+            <!-- Мобильная версия email -->
+            <a class="footer__item-mobile" href="#" data-copy-email>
+              <img class="footer__item-ico" src="images/icons/email.svg" alt="email-icon" />
+              <p class="footer__item-text">Send us an Email</p>
             </a>
           </div>
           <div class="footer__item">
@@ -697,6 +708,11 @@
               <p class="footer__item-name">Schedule a Call</p>
               <img class="footer__item-copy" src="images/icons/arrow-top-rght.svg" alt="copy-icon" />
             </a>
+            <!-- Мобильная версия call -->
+            <a class="footer__item-mobile" href="#">
+              <img class="footer__item-ico" src="images/icons/call.svg" alt="call-icon" />
+              <p class="footer__item-text">Schedule a Call</p>
+            </a>
           </div>
           <div class="footer__item">
             <div class="footer__item-blank">
@@ -707,6 +723,11 @@
               <p class="footer__item-name">@hazeflow_xyz</p>
               <img class="footer__item-copy" src="images/icons/arrow-top-rght.svg" alt="copy-icon" />
             </a>
+            <!-- Мобильная версия telegram -->
+            <a class="footer__item-mobile" href="#">
+              <img class="footer__item-ico" src="images/icons/telegram.svg" alt="telegram-icon" />
+              <p class="footer__item-text">@hazeflow_xyzl</p>
+            </a>
           </div>
           <div class="footer__item">
             <div class="footer__item-blank">
@@ -716,6 +737,11 @@
             <a class="footer__item-link" href="#">
               <p class="footer__item-name">@hazeflow_xyz</p>
               <img class="footer__item-copy" src="images/icons/arrow-top-rght.svg" alt="copy-icon" />
+            </a>
+            <!-- Мобильная версия X -->
+            <a class="footer__item-mobile" href="#">
+              <img class="footer__item-ico" src="images/icons/X.svg" alt="x-icon" />
+              <p class="footer__item-text">@hazeflow_xyz</p>
             </a>
           </div>
         </div>
