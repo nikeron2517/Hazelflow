@@ -43,10 +43,19 @@
           </div>
           <!-- MobNav -->
           <div class="mobile-nav">
+            <button class="mobile-nav__close" aria-label="Close menu">
+              <img src="images/icons/X.svg" alt="Close-icon" />
+            </button>
             <div class="mobile-nav__item">
-              <!-- header__list -->
+              <ul class="header__list">
+                <li class="header__link"><a href="#about">About Us</a></li>
+                <li class="header__link"><a href="#workflow">Our Workflow</a></li>
+                <li class="header__link"><a href="#materials">Published Materials</a></li>
+                <li class="header__link"><a href="#faqs">FAQs</a></li>
+              </ul>
             </div>
           </div>
+          <div class="mobile-nav-backdrop"></div>
         </div>
       </div>
     </div>
@@ -318,19 +327,21 @@
 
       <div class="info">
         <div class="info__inner">
+          <img src="images/bg/letter-left.png" class="info__bg-img info__bg-img--left" alt="letter" />
+          <img src="images/bg/letter-right.png" class="info__bg-img info__bg-img--right" alt="letter" />
           <div class="info__content">
             <h4 class="info__title">When we say <span>"broader audience"</span> we refer to three main categories of users</h4>
 
             <div class="info__items">
-              <div class="info__item">
+              <div class="info__item info__item--left">
                 <p class="info__item-title">High-profile individuals</p>
                 <p class="info__item-text">Developers, researchers, investors, and analysts deeply involved in the blockchain space.</p>
               </div>
-              <div class="info__item">
+              <div class="info__item info__item--center">
                 <p class="info__item-title">Degens</p>
                 <p class="info__item-text">Community members, contributors, traders, and other active ecosystem users.</p>
               </div>
-              <div class="info__item">
+              <div class="info__item info__item--right">
                 <p class="info__item-title">Newcomers</p>
                 <p class="info__item-text">Those who have recently entered the crypto space or the protocol's ecosystem in general.</p>
               </div>
@@ -531,104 +542,141 @@
       </div>
 
       <div class="faqs">
-        <div class="faqs__container container"><h4 class="faqs__title">Frequently <br> <img src="images/question/asked.png" alt="img" /> Questions</h4>
-        <div class="faqs__accordeon">
-          <div class="faqs__items">
-            <div class="faqs__item">
-              <div class="faqs__item-box">
-                <p class="faqs__item-name">Is the research and article writing done entirely by humans?</p>
-                <img class="faqs__item-img" src="images/icons/plus.svg" alt="plus-icon" />
+        <div class="faqs__container container">
+          <h4 class="faqs__title">
+            Frequently
+            <img src="images/text/asked.png" alt="text-icon" /> Questions
+          </h4>
+          <div class="faqs__accordeon">
+            <div class="faqs__items">
+              <div class="faqs__item">
+                <div class="faqs__item-box">
+                  <p class="faqs__item-name">Is the research and article writing done entirely by humans?</p>
+                  <img class="faqs__item-img faqs__item-icon--plus" src="images/icons/plus.svg" alt="plus-icon" />
+                  <img class="faqs__item-img faqs__item-icon--minus" src="images/icons/minus.svg" alt="minus-icon" />
+                </div>
+                <p class="faqs__item-text">
+                  Yes, our research and article writing are conducted entirely by humans. However, we use AI to correct spelling errors and grammar.
+                </p>
               </div>
-              <p class="faqs__item-text">
-                Yes, our research and article writing are conducted entirely by humans. However, we use AI to correct spelling errors and grammar.
-              </p>
-            </div>
-            <div class="faqs__item">
-              <div class="faqs__item-box">
-                <p class="faqs__item-name">Which types of protocols do you work with?</p>
-                <img class="faqs__item-img" src="images/icons/plus.svg" alt="plus-icon" />
+              <div class="faqs__item">
+                <div class="faqs__item-box">
+                  <p class="faqs__item-name">Which types of protocols do you work with?</p>
+                  <img class="faqs__item-img faqs__item-icon--plus" src="images/icons/plus.svg" alt="plus-icon" />
+                  <img class="faqs__item-img faqs__item-icon--minus" src="images/icons/minus.svg" alt="minus-icon" />
+                </div>
+                <p class="faqs__item-text">
+                  We primarily work with infrastructure projects, privacy protocols, crypto-AI teams, DeFi, and consumer crypto. We are always open to
+                  discussing other blockchain verticals.
+                </p>
               </div>
-              <p class="faqs__item-text">We primarily work with infrastructure projects, privacy protocols, crypto-AI teams, DeFi, and consumer crypto. We are always open to discussing other blockchain verticals.</p>
-            </div>
-            <div class="faqs__item">
-              <div class="faqs__item-box">
-                <p class="faqs__item-name">How are engagements usually structured?</p>
-                <img class="faqs__item-img" src="images/icons/plus.svg" alt="plus-icon" />
+              <div class="faqs__item">
+                <div class="faqs__item-box">
+                  <p class="faqs__item-name">How are engagements usually structured?</p>
+                  <img class="faqs__item-img faqs__item-icon--plus" src="images/icons/plus.svg" alt="plus-icon" />
+                  <img class="faqs__item-img faqs__item-icon--minus" src="images/icons/minus.svg" alt="minus-icon" />
+                </div>
+                <p class="faqs__item-text">
+                  We specialize in long-term partnerships lasting 6 months or more, focusing on deep engagement and clear communication. However, we
+                  are open to discussing alternative ways of collaborating.
+                </p>
               </div>
-              <p class="faqs__item-text">We specialize in long-term partnerships lasting 6 months or more, focusing on deep engagement and clear communication. However, we are open to discussing alternative ways of collaborating.</p>
-            </div>
-            <div class="faqs__item">
-              <div class="faqs__item-box">
-                <p class="faqs__item-name">What are the benefits of a long-term partnership with you?</p>
-                <img class="faqs__item-img" src="images/icons/plus.svg" alt="plus-icon" />
+              <div class="faqs__item">
+                <div class="faqs__item-box">
+                  <p class="faqs__item-name">What are the benefits of a long-term partnership with you?</p>
+                  <img class="faqs__item-img faqs__item-icon--plus" src="images/icons/plus.svg" alt="plus-icon" />
+                  <img class="faqs__item-img faqs__item-icon--minus" src="images/icons/minus.svg" alt="minus-icon" />
+                </div>
+                <p class="faqs__item-text">
+                  Because our collaborations extend over long periods, our team gains a thorough understanding of the product. This deep engagement
+                  allows us to conduct deep research and produce insightful and informative articles. We deliver high-quality content by fully
+                  engaging with the protocol over time.
+                </p>
               </div>
-              <p class="faqs__item-text">Because our collaborations extend over long periods, our team gains a thorough understanding of the product. This deep engagement allows us to conduct deep research and produce insightful and informative articles. We deliver high-quality content by fully engaging with the protocol over time.</p>
-            </div>
-            <div class="faqs__item">
-              <div class="faqs__item-box">
-                <p class="faqs__item-name">How do you keep the client informed about the progress of the work? How often do you provide updates?</p>
-                <img class="faqs__item-img" src="images/icons/plus.svg" alt="plus-icon" />
+              <div class="faqs__item">
+                <div class="faqs__item-box">
+                  <p class="faqs__item-name">How do you keep the client informed about the progress of the work? How often do you provide updates?</p>
+                  <img class="faqs__item-img faqs__item-icon--plus" src="images/icons/plus.svg" alt="plus-icon" />
+                  <img class="faqs__item-img faqs__item-icon--minus" src="images/icons/minus.svg" alt="minus-icon" />
+                </div>
+                <p class="faqs__item-text">
+                  We ensure complete transparency in our interactions with clients at every stage of the process, including communication and progress
+                  tracking. To achieve this, we create a table in Notion where we update task statuses in real time and add the client’s team members.
+                  You can access the table anytime to check the current status of the project. To ensure open communication, we create a chat where
+                  our team stays in constant contact with the client, promptly updates on the progress, and answers all your questions.
+                </p>
               </div>
-              <p class="faqs__item-text">We ensure complete transparency in our interactions with clients at every stage of the process, including communication and progress tracking. To achieve this, we create a table in Notion where we update task statuses in real time and add the client’s team members. You can access the table anytime to check the current status of the project.
-
-To ensure open communication, we create a chat where our team stays in constant contact with the client, promptly updates on the progress, and answers all your questions.
-</p>
-            </div>
-            <div class="faqs__item">
-              <div class="faqs__item-box">
-                <p class="faqs__item-name">Which services are included in your technical content creation?</p>
-                <img class="faqs__item-img" src="images/icons/plus.svg" alt="plus-icon" />
+              <div class="faqs__item">
+                <div class="faqs__item-box">
+                  <p class="faqs__item-name">Which services are included in your technical content creation?</p>
+                  <img class="faqs__item-img faqs__item-icon--plus" src="images/icons/plus.svg" alt="plus-icon" />
+                  <img class="faqs__item-img faqs__item-icon--minus" src="images/icons/minus.svg" alt="minus-icon" />
+                </div>
+                <p class="faqs__item-text">
+                  We offer a wide range of services: we write technical articles tailored to different target audiences, create content for your media
+                  channels, and prepare whitepapers and other technical documents.
+                </p>
               </div>
-              <p class="faqs__item-text">We offer a wide range of services: we write technical articles tailored to different target audiences, create content for your media channels, and prepare whitepapers and other technical documents.</p>
-            </div>
-            <div class="faqs__item">
-              <div class="faqs__item-box">
-                <p class="faqs__item-name">Do you create diagrams and visual illustrations for your content?</p>
-                <img class="faqs__item-img" src="images/icons/plus.svg" alt="plus-icon" />
+              <div class="faqs__item">
+                <div class="faqs__item-box">
+                  <p class="faqs__item-name">Do you create diagrams and visual illustrations for your content?</p>
+                  <img class="faqs__item-img faqs__item-icon--plus" src="images/icons/plus.svg" alt="plus-icon" />
+                  <img class="faqs__item-img faqs__item-icon--minus" src="images/icons/minus.svg" alt="minus-icon" />
+                </div>
+                <p class="faqs__item-text">
+                  Yes, we create diagrams from scratch or enhance existing ones. For instance, we collaborated with Sonic Labs (formerly Fantom
+                  Foundation) and produced numerous diagrams for their <a href="https://www.soniclabs.com/whitepaper">whitepaper</a>.
+                </p>
               </div>
-              <p class="faqs__item-text">Yes, we create diagrams from scratch or enhance existing ones. For instance, we collaborated with Sonic Labs (formerly Fantom Foundation) and produced numerous diagrams for their whitepaper.</p>
-            </div>
-            <div class="faqs__item">
-              <div class="faqs__item-box">
-                <p class="faqs__item-name">Do you offer any other services?</p>
-                <img class="faqs__item-img" src="images/icons/plus.svg" alt="plus-icon" />
+              <div class="faqs__item">
+                <div class="faqs__item-box">
+                  <p class="faqs__item-name">Do you offer any other services?</p>
+                  <img class="faqs__item-img faqs__item-icon--plus" src="images/icons/plus.svg" alt="plus-icon" />
+                  <img class="faqs__item-img faqs__item-icon--minus" src="images/icons/minus.svg" alt="minus-icon" />
+                </div>
+                <p class="faqs__item-text">
+                  Besides our core offering, we also create technical docs, whitepapers, and work with teams on private research, which is utilized
+                  internally and not published anywhere. If you want to leverage our time for any other research- and writing-related activity, we are
+                  keen to discuss.
+                </p>
               </div>
-              <p class="faqs__item-text">Besides our core offering, we also create technical docs, whitepapers, and work with teams on private research, which is utilized internally and not published anywhere.
-
-If you want to leverage our time for any other research- and writing-related activity, we are keen to discuss.</p>
-            </div>
-            <div class="faqs__item">
-              <div class="faqs__item-box">
-                <p class="faqs__item-name">How much time does it usually take to write content?</p>
-                <img class="faqs__item-img" src="images/icons/plus.svg" alt="plus-icon" />
+              <div class="faqs__item">
+                <div class="faqs__item-box">
+                  <p class="faqs__item-name">How much time does it usually take to write content?</p>
+                  <img class="faqs__item-img faqs__item-icon--plus" src="images/icons/plus.svg" alt="plus-icon" />
+                  <img class="faqs__item-img faqs__item-icon--minus" src="images/icons/minus.svg" alt="minus-icon" />
+                </div>
+                <p class="faqs__item-text">
+                  Highly technical articles requiring in-depth research, such as those involving extensive analysis or primary source material, will
+                  demand more time. Conversely, articles based on pre-existing ideas or insights can typically be completed and refined within one
+                  week. For instance, a comprehensive report on the broader landscape, if approved, might require reviewing multiple whitepapers,
+                  analyzing on-chain data, and consuming hours of panels and podcasts. Such an undertaking could require an entire month or even more
+                  for a single article.
+                </p>
               </div>
-              <p class="faqs__item-text">Highly technical articles requiring in-depth research, such as those involving extensive analysis or primary source material, will demand more time. Conversely, articles based on pre-existing ideas or insights can typically be completed and refined within one week.
-
-For instance, a comprehensive report on the broader landscape, if approved, might require reviewing multiple whitepapers, analyzing on-chain data, and consuming hours of panels and podcasts. Such an undertaking could require an entire month or even more for a single article.
-</p>
             </div>
-          </div>
           </div>
         </div>
       </div>
     </main>
 
-    <div class="footer">
+    <footer class="footer">
       <div class="footer__inner container">
-        <h5 class="footer__title">Ready to get <img src="images/text/started-text.svg" alt="text-icon" />?</h5>
+        <h5 class="footer__title title">Ready to get <img src="images/text/started-text.svg" alt="text-icon" />?</h5>
         <p class="footer__subtitle">Tell us about yourself, and we’ll get in touch!</p>
 
         <div class="footer__form">
           <div class="footer__form-box">
             <img class="footer__form-ico" src="images/icons/form-icon.svg" alt="form-icon" />
-            <p class="footer__form-name">Fill Our Contact Form</p>
+            <p class="footer__form-name">Fill the Form</p>
           </div>
-          <a class="footer__form-link" href="#">
+          <a class="footer__form-link" href="https://form.typeform.com/to/MGi2daKK">
             <p class="footer__form-subname">Show Me the Form!</p>
-            <img class="footer__form-subico" src="images/icons/form-arrow.svg" alt="form-icon" />
+            <img class="footer__form-subico" src="images/icons/arrow-top-rght.svg" alt="form-icon" />
           </a>
         </div>
-        <div class="footer__or">or</div>
+        <div class="footer__or"><span>or</span></div>
+
         <div class="footer__links">
           <div class="footer__item">
             <div class="footer__item-blank">
@@ -637,14 +685,44 @@ For instance, a comprehensive report on the broader landscape, if approved, migh
             </div>
             <a class="footer__item-link" href="#">
               <p class="footer__item-name">info@hazelflow.xyz</p>
-              <img class="footer__item-copy" src="images/icons/copy-icon.svg" alt="copy-icon" />
+              <img class="footer__item-copy" src="images/icons/copy.svg" alt="copy-icon" />
+            </a>
+          </div>
+          <div class="footer__item">
+            <div class="footer__item-blank">
+              <img class="footer__item-ico" src="images/icons/call.svg" alt="call-icon" />
+              <p class="footer__item-text">Schedule a Call</p>
+            </div>
+            <a class="footer__item-link" href="#">
+              <p class="footer__item-name">Schedule a Call</p>
+              <img class="footer__item-copy" src="images/icons/arrow-top-rght.svg" alt="copy-icon" />
+            </a>
+          </div>
+          <div class="footer__item">
+            <div class="footer__item-blank">
+              <img class="footer__item-ico" src="images/icons/telegram.svg" alt="telegram-icon" />
+              <p class="footer__item-text">@hazeflow_xyzl</p>
+            </div>
+            <a class="footer__item-link" href="#">
+              <p class="footer__item-name">@hazeflow_xyz</p>
+              <img class="footer__item-copy" src="images/icons/arrow-top-rght.svg" alt="copy-icon" />
+            </a>
+          </div>
+          <div class="footer__item">
+            <div class="footer__item-blank">
+              <img class="footer__item-ico" src="images/icons/X.svg" alt="x-icon" />
+              <p class="footer__item-text">@hazeflow_xyz</p>
+            </div>
+            <a class="footer__item-link" href="#">
+              <p class="footer__item-name">@hazeflow_xyz</p>
+              <img class="footer__item-copy" src="images/icons/arrow-top-rght.svg" alt="copy-icon" />
             </a>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="js/accordion.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
