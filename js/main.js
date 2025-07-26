@@ -37,6 +37,24 @@ const materials = new Swiper(".materials__slider", {
 
 // Utility functions
 function startAutoScrollToLastCenter(swiper, pxPerFrame = 1.2) {
+  const rightCloud = document.querySelector(".cloud-right");
+  const topCloud = document.querySelector(".cloud-top");
+  const topRightCloud = document.querySelector(".cloud-top-right");
+  let cloudProgress = 0;
+  const totalCloudDistance = 100; // Общее расстояние движения облака в процентах
+  
+  // Устанавливаем начальную позицию облаков
+  if (rightCloud) {
+    rightCloud.style.transform = `translateX(50%)`;
+  }
+  if (topCloud) {
+    topCloud.style.transform = `translateX(-50%)`;
+  }
+  // Правое верхнее облако остается статическим
+  // if (topRightCloud) {
+  //   topRightCloud.style.transform = `translateX(0px)`;
+  // }
+  
   const interval = setInterval(() => {
     const swiperEl = swiper.el;
     const swiperRect = swiperEl.getBoundingClientRect();
@@ -49,7 +67,29 @@ function startAutoScrollToLastCenter(swiper, pxPerFrame = 1.2) {
       clearInterval(interval);
       return;
     }
+    
     swiper.setTranslate(swiper.getTranslate() - pxPerFrame);
+    
+    // Анимация правого облака синхронно со слайдером
+    if (rightCloud) {
+      cloudProgress += (pxPerFrame / 10); // Скорость движения облака
+      const cloudTransform = Math.min(cloudProgress, totalCloudDistance);
+      rightCloud.style.transform = `translateX(${50 + cloudTransform}%)`;
+    }
+    
+    // Анимация верхнего облака синхронно со слайдером (в 2 раза медленнее)
+    if (topCloud) {
+      const topCloudTransform = Math.min(cloudProgress, totalCloudDistance);
+      topCloud.style.transform = `translateX(-${50 + (topCloudTransform / 2)}%)`;
+    }
+    
+    // Правое верхнее облако остается статическим
+    // if (topRightCloud) {
+    //   const topRightCloudTransform = Math.min(cloudProgress, totalCloudDistance);
+    //   const maxMovement = 100;
+    //   const movement = (topRightCloudTransform / 100) * maxMovement;
+    //   topRightCloud.style.transform = `translateX(${-100 - movement}px)`;
+    // }
   }, 16);
 }
 
@@ -82,9 +122,46 @@ function showCopyNotification() {
   }, 1500);
 }
 
+// Intro animation function
+function startIntroAnimation(elements, isAutoStart = false) {
+  if (elements.isAnimating) return;
+  elements.isAnimating = true;
+  
+  // Prevent multiple animations
+  if (elements.header.classList.contains("header--in")) return;
+  
+  // 1. Сначала заголовок и сабтайтл прилетают сверху экрана
+  elements.intro.classList.add("intro--in");
+  
+  // Анимация облаков
+  if (elements.clouds.left) elements.clouds.left.classList.add("cloud--out");
+  if (elements.clouds.right) elements.clouds.right.classList.add("cloud--out");
+  if (elements.clouds.top) elements.clouds.top.classList.add("cloud--out");
+  if (elements.clouds.topRight) elements.clouds.topRight.classList.add("cloud--out");
+
+  // 2. Сразу после того как контент прилетел, лого и меню прилетают с краев экрана и делают баунс
+  setTimeout(() => {
+    elements.header.classList.add("header--in");
+  }, 20); // Хедер появляется через 0.3 секунды после начала анимации
+
+  introSwiper.slideTo(0, 0);
+
+  setTimeout(() => {
+    if (elements.clouds.left) elements.clouds.left.classList.add("cloud--slider-move");
+    if (elements.clouds.right) elements.clouds.right.classList.add("cloud--slider-move");
+    if (elements.clouds.top) elements.clouds.top.classList.add("cloud--top-move");
+    if (elements.clouds.topRight) elements.clouds.topRight.classList.add("cloud--top-move");
+
+    startAutoScrollToLastCenter(introSwiper, 0.7);
+    
+    setTimeout(() => {
+      elements.isAnimating = false;
+    }, 10000);
+  }, 1500);
+}
+
 // Main initialization
 document.addEventListener("DOMContentLoaded", function () {
-  // Elements
   const elements = {
     scrollBtn: document.querySelector(".intro__btn"),
     nextSection: document.querySelector(".problem"),
@@ -94,7 +171,8 @@ document.addEventListener("DOMContentLoaded", function () {
     clouds: {
       left: document.querySelector(".cloud-left"),
       right: document.querySelector(".cloud-right"),
-      top: document.querySelector(".cloud-top")
+      top: document.querySelector(".cloud-top"),
+      topRight: document.querySelector(".cloud-top-right")
     },
     infoContent: document.querySelector(".info__content"),
     infoElements: {
@@ -108,8 +186,18 @@ document.addEventListener("DOMContentLoaded", function () {
     navBtn: document.querySelector(".nav-btn"),
     mobileNav: document.querySelector(".mobile-nav"),
     mobileNavBackdrop: document.querySelector(".mobile-nav-backdrop"),
-    mobileNavClose: document.querySelector(".mobile-nav__close")
+    mobileNavClose: document.querySelector(".mobile-nav__close"),
+    isAnimating: false
   };
+
+  // Auto-start intro animation after a short delay
+  if (elements.introInner) {
+    setTimeout(() => {
+      startIntroAnimation(elements, true);
+    }, 700); // Start animation 0.7 second after page load
+  } else {
+    console.log("IntroInner not found!");
+  }
 
   // FAQ Accordion
   const faqItems = document.querySelectorAll(".faqs__item");
@@ -166,62 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Intro animation
-  if (elements.introInner) {
-    let isAnimating = false;
-    
-    elements.introInner.addEventListener("click", function () {
-      if (isAnimating) return;
-      isAnimating = true;
-      
-      // Start animation
-      elements.header.classList.remove("header--in");
-      elements.header.classList.add("header--out");
-      
-      Object.values(elements.clouds).forEach(cloud => {
-        if (cloud) cloud.classList.add("cloud--out");
-      });
-      
-      elements.intro.classList.add("intro--out");
 
-      setTimeout(() => {
-        elements.intro.classList.add("intro--fade");
-      }, 450);
-
-      // Reset animation
-      setTimeout(() => {
-        elements.header.classList.remove("header--out");
-        elements.header.classList.add("header--in", "header--bounce");
-        elements.intro.classList.remove("intro--out", "intro--fade");
-        elements.intro.classList.add("intro--bounce");
-        
-        Object.values(elements.clouds).forEach(cloud => {
-          if (cloud) cloud.classList.remove("cloud--out");
-        });
-        
-        setTimeout(() => {
-          elements.header.classList.remove("header--bounce");
-          elements.intro.classList.remove("intro--bounce");
-        }, 1700);
-      }, 1600);
-
-      introSwiper.slideTo(0, 0);
-
-      // Slider animation
-      setTimeout(() => {
-        if (elements.clouds.left) elements.clouds.left.classList.add("cloud--slider-move");
-        if (elements.clouds.right) elements.clouds.right.classList.add("cloud--slider-move");
-
-        startAutoScrollToLastCenter(introSwiper, 0.7);
-        
-        setTimeout(() => {
-          if (elements.clouds.left) elements.clouds.left.classList.remove("cloud--slider-move");
-          if (elements.clouds.right) elements.clouds.right.classList.remove("cloud--slider-move");
-          isAnimating = false;
-        }, 10000);
-      }, 5300);
-    });
-  }
 
   // Info section animation
   if (elements.infoContent) {
