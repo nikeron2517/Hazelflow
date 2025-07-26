@@ -1354,8 +1354,13 @@ h5 {
   margin: 0 auto;
   margin-bottom: 37px;
   max-width: 266px;
+  transition: transform 0.2s ease-out;
 }
 @media (hover: hover) and (pointer: fine) {
+  .footer__form:hover {
+    transform: scale(1.05);
+    animation: form-bounce 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  }
   .footer__form:hover .footer__form-box {
     display: none;
   }
@@ -1443,6 +1448,7 @@ h5 {
 @media (max-width: 850px) {
   .footer__form-mobile:active, .footer__item-mobile:active {
     transform: scale(0.98);
+    animation: form-bounce 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 }
 .footer__or {
@@ -1627,6 +1633,26 @@ h5 {
   }
   100% {
     transform: translateX(0);
+  }
+}
+@keyframes form-bounce {
+  0% {
+    transform: scale(1.05);
+  }
+  20% {
+    transform: scale(1.08);
+  }
+  40% {
+    transform: scale(1.02);
+  }
+  60% {
+    transform: scale(1.06);
+  }
+  80% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1.05);
   }
 }
 @keyframes menuItemFadeIn {
