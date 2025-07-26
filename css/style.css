@@ -143,10 +143,6 @@ h5 {
   font-variation-settings: "wght" 400;
 }
 
-.dn {
-  display: none;
-}
-
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -184,6 +180,17 @@ h5 {
 }
 .header__logo {
   width: 105px;
+  transition: transform 0.3s ease-out;
+  cursor: pointer;
+}
+.header__logo:hover {
+  transform: translateX(3px) scale(1.02);
+}
+.header__logo img {
+  transition: transform 0.3s ease-out;
+}
+.header__logo:hover img {
+  transform: rotate(2deg);
 }
 .header__list {
   gap: 32px;
@@ -191,11 +198,18 @@ h5 {
 .header__link {
   display: flex;
   align-items: center;
-  transition: all 0.3s ease-out;
+  transition: all 0.2s ease-out;
   white-space: nowrap;
 }
 .header__link a::first-letter {
   text-transform: uppercase;
+}
+.header__link a {
+  transition: all 0.2s ease-out;
+}
+.header__link:hover a {
+  color: #66e8ff;
+  text-shadow: 0 0 6px rgba(102, 232, 255, 0.3);
 }
 .header__link--active a {
   position: relative;
@@ -223,6 +237,11 @@ h5 {
   border-radius: 50px;
   font-size: 18px;
   font-variation-settings: "wght" 600;
+  transition: transform 0.2s ease-out;
+  cursor: pointer;
+}
+.header__contact:hover {
+  transform: scale(1.05);
 }
 
 .nav-btn {
@@ -233,79 +252,27 @@ h5 {
   justify-content: center;
   height: 54px;
   width: 54px;
-  border: none;
   padding: 0;
-  background: linear-gradient(135deg, rgba(30, 30, 35, 0.9) 0%, rgba(18, 18, 22, 0.95) 50%, rgba(8, 8, 12, 0.98) 100%);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(64, 156, 255, 0.15);
-  border-radius: 16px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 0 1px rgba(64, 156, 255, 0.08);
-}
-.nav-btn::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  background: radial-gradient(circle, rgba(64, 156, 255, 0.2) 0%, transparent 70%);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: width 0.6s ease, height 0.6s ease;
-  pointer-events: none;
-}
-.nav-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(64, 156, 255, 0.03) 0%, transparent 50%, rgba(64, 156, 255, 0.03) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  border-radius: 16px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  border-radius: 50px;
+  border: none;
 }
 .nav-btn:hover {
   transform: scale(1.05);
-  border-color: rgba(64, 156, 255, 0.25);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(64, 156, 255, 0.15), 0 0 20px rgba(64, 156, 255, 0.12);
-}
-.nav-btn:hover::before {
-  width: 80px;
-  height: 80px;
-}
-.nav-btn:hover::after {
-  opacity: 1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 .nav-btn:active {
   transform: scale(0.95);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 0 1px rgba(64, 156, 255, 0.08);
-}
-.nav-btn img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -3;
 }
 
 .nav-btn-icon {
   position: relative;
   display: block;
-  width: 34px;
+  width: 26px;
   height: 2px;
-  background-color: #64a0ff;
+  background-color: #4a4a4a;
   pointer-events: none;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center;
@@ -317,7 +284,7 @@ h5 {
   display: block;
   width: 100%;
   height: 100%;
-  background-color: #64a0ff;
+  background-color: #4a4a4a;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
   transform-origin: center;
@@ -334,56 +301,42 @@ h5 {
 .nav-btn.active .nav-btn-icon {
   background-color: transparent;
   transform: rotate(180deg);
-  box-shadow: 0 0 20px rgba(64, 156, 255, 0.3);
 }
 .nav-btn.active .nav-btn-icon::before {
   transform: translateY(7px) rotate(45deg);
   top: 0;
-  background-color: #64a0ff;
-  box-shadow: 0 0 10px rgba(64, 156, 255, 0.5);
+  background-color: #4a4a4a;
 }
 .nav-btn.active .nav-btn-icon::after {
   transform: translateY(-7px) rotate(-45deg);
   bottom: 0;
-  background-color: #64a0ff;
-  box-shadow: 0 0 10px rgba(64, 156, 255, 0.5);
+  background-color: #4a4a4a;
 }
 
 .nav-btn.active {
-  background: linear-gradient(135deg, rgba(64, 156, 255, 0.25) 0%, rgba(18, 18, 22, 0.95) 50%, rgba(8, 8, 12, 0.98) 100%);
-  border-color: rgba(64, 156, 255, 0.35);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(64, 156, 255, 0.12), 0 0 0 1px rgba(64, 156, 255, 0.25), 0 0 30px rgba(64, 156, 255, 0.18);
-}
-.nav-btn.active::before {
-  background: radial-gradient(circle, rgba(64, 156, 255, 0.3) 0%, transparent 70%);
-  width: 100px;
-  height: 100px;
-  animation: ripplePulse 2s infinite;
-}
-.nav-btn.active::after {
-  opacity: 1;
-  background: linear-gradient(135deg, rgba(64, 156, 255, 0.06) 0%, transparent 50%, rgba(64, 156, 255, 0.06) 100%);
+  background-color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .nav-btn:hover .nav-btn-icon {
-  background-color: #7ab4ff;
+  background-color: #4a4a4a;
 }
 .nav-btn:hover .nav-btn-icon::before {
   transform: translateY(-2px);
-  background-color: #7ab4ff;
+  background-color: #4a4a4a;
 }
 .nav-btn:hover .nav-btn-icon::after {
   transform: translateY(2px);
-  background-color: #7ab4ff;
+  background-color: #4a4a4a;
 }
 
 .nav-btn.active:hover .nav-btn-icon::before {
   transform: translateY(7px) rotate(45deg) scale(1.1);
-  background-color: #7ab4ff;
+  background-color: #4a4a4a;
 }
 .nav-btn.active:hover .nav-btn-icon::after {
   transform: translateY(-7px) rotate(-45deg) scale(1.1);
-  background-color: #7ab4ff;
+  background-color: #4a4a4a;
 }
 
 .hamburger,
@@ -467,6 +420,50 @@ h5 {
   animation: header-bounce-nav 1.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
+.mobile-nav.active::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: rgba(20, 89, 124, 0.5);
+  pointer-events: none;
+}
+.mobile-nav.active .mobile-nav__item ul li {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: mobileNavItemFadeIn 0.5s ease-out forwards;
+}
+.mobile-nav.active .mobile-nav__item ul li:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.mobile-nav.active .mobile-nav__item ul li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.mobile-nav.active .mobile-nav__item ul li:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.mobile-nav.active .mobile-nav__item ul li:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.mobile-nav-backdrop.active {
+  opacity: 1 !important;
+  background: linear-gradient(135deg, rgba(102, 232, 255, 0.2) 0%, #171718 100%);
+}
+
+@keyframes mobileNavItemFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes header-bounce-logo {
   0% {
     transform: translateX(-120%);
@@ -493,6 +490,13 @@ h5 {
   overflow: hidden;
   min-height: 100vh;
   position: relative;
+}
+.intro__name-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
 }
 .intro__inner {
   background-image: url(../images/bg/intro-bg.png);
@@ -540,6 +544,13 @@ h5 {
   background-color: rgba(255, 255, 255, 0.1);
   gap: 10px;
   margin-bottom: 36px;
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+}
+.intro__btn:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 .intro__btnimg {
   width: 20px;
@@ -643,10 +654,13 @@ h5 {
   transition: transform 1.6s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .intro .cloud-left.cloud--out {
-  transform: translateX(-120%);
+  transform: translateX(-40px);
 }
 .intro .cloud-right.cloud--out {
-  transform: translateX(120%);
+  transform: translateX(40px);
+}
+.intro .cloud-top.cloud--out {
+  transform: translateX(-50%) translateY(-40px);
 }
 .intro .cloud-left.cloud--slider-move {
   transform: translateX(30px);
@@ -655,28 +669,6 @@ h5 {
 .intro .cloud-right.cloud--slider-move {
   transform: translateX(-30px);
   transition: transform 10s cubic-bezier(0.22, 1, 0.36, 1);
-}
-@keyframes cloud-bounce-left {
-  0% {
-    transform: translateX(-120%);
-  }
-  80% {
-    transform: translateX(18px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes cloud-bounce-right {
-  0% {
-    transform: translateX(120%);
-  }
-  80% {
-    transform: translateX(-18px);
-  }
-  100% {
-    transform: translateX(0);
-  }
 }
 @keyframes intro-bounce {
   0% {
@@ -689,18 +681,16 @@ h5 {
     transform: translateY(0);
   }
 }
-.intro .cloud-left.cloud--bounce {
-  animation: cloud-bounce-left 1.6s cubic-bezier(0.19, 1, 0.22, 1);
-}
-.intro .cloud-right.cloud--bounce {
-  animation: cloud-bounce-right 1.6s cubic-bezier(0.19, 1, 0.22, 1);
-}
 
 .problem {
   padding-top: 82px;
   padding-bottom: 60px;
   background-color: #0f0f10;
   color: #fff;
+  background-image: url(../images/bg/dots-bg.png);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
 }
 .problem__title {
   gap: 20px;
@@ -724,6 +714,9 @@ h5 {
 .problem__group:nth-child(2) {
   border-left: 1px dashed #373737;
   border-right: 1px dashed #373737;
+}
+.problem__group .problem__item:last-child {
+  border-bottom: none;
 }
 .problem__item {
   padding: 12px 8px;
@@ -750,6 +743,10 @@ h5 {
 .about {
   padding: 74px 0 86px;
   background-color: #181819;
+  background-image: url(../images/bg/dots-bg.png);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
 }
 .about__title {
   color: #b8b8b8;
@@ -993,6 +990,14 @@ h5 {
   margin-top: 0;
   animation-fill-mode: both;
 }
+@media (hover: none) and (pointer: coarse) {
+  .workflow .workflow__items:active .workflow__item {
+    transform: translateY(0px) rotate(0deg);
+    pointer-events: auto;
+    margin-top: 0;
+    animation-fill-mode: both;
+  }
+}
 .workflow .workflow__item.is-bouncing {
   animation: workflow-bounce 0.7s cubic-bezier(0.23, 1, 0.32, 1);
   z-index: 20 !important;
@@ -1017,6 +1022,7 @@ h5 {
   max-width: 295px;
   width: 100%;
   height: 100%;
+  border-radius: 8px;
 }
 
 .trusted-teams {
@@ -1623,45 +1629,6 @@ h5 {
     transform: translateX(0);
   }
 }
-@keyframes slider-bounce {
-  0% {
-    transform: translateY(40px);
-    opacity: 0.2;
-  }
-  80% {
-    transform: translateY(-10px);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes burgerPulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-@keyframes menuSlideIn {
-  0% {
-    transform: translateX(100%) scale(0.95);
-    opacity: 0;
-  }
-  50% {
-    transform: translateX(50%) scale(0.98);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
-}
 @keyframes menuItemFadeIn {
   0% {
     opacity: 0;
@@ -1670,20 +1637,6 @@ h5 {
   100% {
     opacity: 1;
     transform: translateY(0) translateX(0);
-  }
-}
-@keyframes ripplePulse {
-  0% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1);
-  }
-  50% {
-    opacity: 0.4;
-    transform: translate(-50%, -50%) scale(1.1);
-  }
-  100% {
-    opacity: 0.8;
-    transform: translate(-50%, -50%) scale(1);
   }
 }
 @media (min-width: 1000px) {
@@ -1696,12 +1649,8 @@ h5 {
   }
 }
 @media (max-width: 1290px) {
-  .intro {
-    min-height: 50vh;
-  }
   .intro__inner {
     padding-top: 150px;
-    min-height: 45vh;
   }
   .intro__title {
     justify-content: center;
@@ -1777,12 +1726,12 @@ h5 {
     top: 0;
     right: 0;
     width: 100%;
-    max-width: 400px;
+    max-width: 100%;
     height: 100%;
     z-index: 101;
     flex-direction: column;
     align-items: flex-end;
-    background: linear-gradient(135deg, #171718 0%, #1a1a1b 50%, #171718 100%);
+    background-color: rgba(235, 235, 240, 0.2);
     box-shadow: -8px 0 32px rgba(0, 0, 0, 0.4);
     transform: translateX(100%);
     opacity: 0;
@@ -1795,7 +1744,7 @@ h5 {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(102, 232, 255, 0.03) 0%, transparent 50%, rgba(102, 232, 255, 0.03) 100%);
+    background: none;
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
@@ -1815,7 +1764,6 @@ h5 {
   .mobile-nav.active {
     transform: translateX(0);
     opacity: 1;
-    animation: menuSlideIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .mobile-nav.active::before {
     opacity: 1;
@@ -1902,6 +1850,7 @@ h5 {
     flex-direction: column;
     align-items: flex-end;
     padding-right: 40px;
+    z-index: 1;
   }
   .mobile-nav__item ul {
     display: flex;
@@ -2081,9 +2030,23 @@ h5 {
   .workflow__item-name {
     font-size: 20px;
   }
-  .workflow__items .workflow__item {
-    transform: translateY(0) rotate(0) !important;
-    margin-top: 0 !important;
+  .workflow .workflow__items .workflow__item:nth-child(3) {
+    transform: translateY(-40px) rotate(-3deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(4) {
+    transform: translateY(-60px) rotate(-4deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(5) {
+    transform: translateY(-80px) rotate(-5deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(6) {
+    transform: translateY(-100px) rotate(-6deg);
+  }
+  .workflow .workflow__items:hover .workflow__item {
+    transform: translateY(0px) rotate(0deg) !important;
+    pointer-events: auto;
+    margin-top: 0;
+    animation-fill-mode: both;
   }
   .trusted-teams {
     padding: 60px 15px;
@@ -2115,13 +2078,6 @@ h5 {
   .header__contact {
     padding: 10px 10px;
     font-size: 16px;
-  }
-  .intro {
-    min-height: auto;
-  }
-  .intro__inner {
-    padding-top: 90px;
-    min-height: 45vh;
   }
   .intro__slider {
     overflow: visible;
@@ -2178,12 +2134,21 @@ h5 {
     right: 30vw;
     top: 0;
   }
+  .problem {
+    padding-bottom: 40px;
+  }
   .problem__title {
     font-size: 32px;
     gap: 10px;
   }
   .problem__title img {
     max-width: 100px;
+    max-height: 30px;
+  }
+  .problem__item {
+    padding: 6px 8px;
+  }
+  .problem .problem__decor {
     max-height: 30px;
   }
   .about__item-content {
@@ -2235,6 +2200,27 @@ h5 {
   .workflow__item-text {
     max-width: 250px;
     font-size: 14px;
+  }
+  .workflow .workflow__items:hover .workflow__item {
+    transform: translateY(0px) rotate(0deg) !important;
+    pointer-events: auto;
+    margin-top: 0;
+    animation-fill-mode: both;
+  }
+  .workflow .workflow__items .workflow__item:nth-child(2) {
+    transform: translateY(-15px) rotate(-1deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(3) {
+    transform: translateY(-30px) rotate(-2deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(4) {
+    transform: translateY(-45px) rotate(-3deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(5) {
+    transform: translateY(-60px) rotate(-4deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(6) {
+    transform: translateY(-70px) rotate(-4deg);
   }
   .materials {
     padding: 60px 0 80px;
@@ -2356,21 +2342,25 @@ h5 {
   .nav-btn {
     height: 40px;
     width: 40px;
-    border-radius: 12px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 0 1px rgba(64, 156, 255, 0.08);
+    border-radius: 50px;
+    background-color: #fff;
   }
   .nav-btn:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(64, 156, 255, 0.15), 0 0 15px rgba(64, 156, 255, 0.12);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
   .nav-btn.active {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(64, 156, 255, 0.12), 0 0 0 1px rgba(64, 156, 255, 0.25), 0 0 20px rgba(64, 156, 255, 0.18);
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
   .header__contact {
     padding: 8px 8px;
     font-size: 14px;
   }
+  .intro {
+    min-height: 90vh;
+  }
   .intro__inner {
-    min-height: 40vh;
+    min-height: 90vh;
   }
   .intro__title {
     font-size: 22px;
@@ -2408,22 +2398,22 @@ h5 {
     max-height: 16px;
   }
   .intro .cloud-left {
-    width: 80px;
-    height: 80px;
-    left: -20vw;
-    top: -10vw;
+    width: 140px;
+    height: 140px;
+    left: 0;
+    top: 50%;
   }
   .intro .cloud-right {
     width: 40px;
     height: 16px;
-    right: -10vw;
+    right: 0;
     top: 70%;
   }
   .intro .cloud-top {
     width: 60px;
     height: 40px;
-    right: 10vw;
     top: 0;
+    left: 40%;
   }
   .problem__title {
     gap: 7px;
@@ -2436,6 +2426,34 @@ h5 {
   .problem__subtitle {
     font-size: 16px;
     margin-bottom: 20px;
+  }
+  .problem__inner {
+    flex-direction: column;
+    align-items: center;
+  }
+  .problem__group {
+    border: none;
+    width: 100%;
+  }
+  .problem__group:last-child {
+    border-bottom: 1px dashed #373737;
+  }
+  .problem__group:nth-child(2) .problem__item {
+    border-left: none;
+    border-right: none;
+  }
+  .problem__item {
+    width: 100%;
+    align-items: center;
+    padding: 6px 2px;
+    border-left: 1px dashed #373737;
+    border-right: 1px dashed #373737;
+  }
+  .problem__item:first-child {
+    border-top: 1px dashed #373737;
+  }
+  .problem__item img {
+    margin: 0 auto;
   }
   .problem__decor {
     max-height: 30px;
@@ -2561,10 +2579,31 @@ h5 {
     font-size: 12px;
   }
   .workflow__item {
-    padding: 15px 0;
+    padding: 15px 5px;
   }
   .workflow__item img {
     max-width: 110px;
+  }
+  .workflow .workflow__items:hover .workflow__item {
+    transform: translateY(0px) rotate(0deg) !important;
+    pointer-events: auto;
+    margin-top: 0;
+    animation-fill-mode: both;
+  }
+  .workflow .workflow__items .workflow__item:nth-child(2) {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(3) {
+    transform: translateY(-14px) rotate(-3deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(4) {
+    transform: translateY(-18px) rotate(-3deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(5) {
+    transform: translateY(-18px) rotate(-4deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(6) {
+    transform: translateY(-14px) rotate(-3deg);
   }
   .trusted-teams {
     padding: 30px 0;
@@ -2594,6 +2633,10 @@ h5 {
   }
   .faqs__item-text {
     font-size: 12px;
+  }
+  .faqs__item-icon--plus, .faqs__item-icon--minus {
+    width: 14px;
+    height: 14px;
   }
   .footer {
     padding: 30px 0;
@@ -2625,20 +2668,15 @@ h5 {
   .container {
     padding: 0 10px;
   }
-  .nav-btn {
-    height: 30px;
-    width: 30px;
-    border-radius: 10px;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.05), 0 0 0 1px rgba(64, 156, 255, 0.08);
-  }
   .nav-btn:hover {
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 0 0 1px rgba(64, 156, 255, 0.15), 0 0 10px rgba(64, 156, 255, 0.12);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
   .nav-btn.active {
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(64, 156, 255, 0.12), 0 0 0 1px rgba(64, 156, 255, 0.25), 0 0 15px rgba(64, 156, 255, 0.18);
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   }
   .header__contact {
-    padding: 6px 6px;
+    padding: 6px 8px 6px 6px;
     font-size: 12px;
   }
   .intro__title {
@@ -2665,18 +2703,6 @@ h5 {
     max-width: 40px;
     max-height: 16px;
   }
-  .intro .cloud-left {
-    width: 40px;
-    height: 40px;
-  }
-  .intro .cloud-right {
-    width: 20px;
-    height: 8px;
-  }
-  .intro .cloud-top {
-    width: 30px;
-    height: 20px;
-  }
   .problem {
     padding: 30px 0;
   }
@@ -2687,7 +2713,7 @@ h5 {
     font-size: 14px;
   }
   .about {
-    padding: 35px 0;
+    padding: 20px 0;
   }
   .about__title {
     font-size: 18px;
@@ -2759,7 +2785,7 @@ h5 {
     right: 45px;
   }
   .info__inner {
-    padding: 10px 0px;
+    padding: 20px 0px;
   }
   .info__title {
     font-size: 9px;
@@ -2776,18 +2802,36 @@ h5 {
   .workflow {
     padding: 20px 0;
   }
-  .workflow__item {
-    padding: 10px 0;
-  }
   .workflow__item img {
     max-width: 80px;
   }
   .workflow__item-number {
     display: none;
   }
-  .workflow .workflow__item-text {
+  .workflow__item-text {
     max-width: 140px;
     font-size: 10px;
+  }
+  .workflow .workflow__items:hover .workflow__item {
+    transform: translateY(0px) rotate(0deg) !important;
+    pointer-events: auto;
+    margin-top: 0;
+    animation-fill-mode: both;
+  }
+  .workflow .workflow__items .workflow__item:nth-child(2) {
+    transform: translateY(-5px) rotate(-2deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(3) {
+    transform: translateY(-5px) rotate(-3deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(4) {
+    transform: translateY(0px) rotate(-3deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(5) {
+    transform: translateY(-5px) rotate(-4deg);
+  }
+  .workflow .workflow__items .workflow__item:nth-child(6) {
+    transform: translateY(0px) rotate(-3deg);
   }
   .trusted-teams {
     padding: 10px;

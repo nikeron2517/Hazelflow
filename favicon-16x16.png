@@ -1,0 +1,6 @@
+# This is a placeholder for favicon-16x16.png
+# You'll need to convert the SVG to PNG format using an online converter
+# or use a tool like ImageMagick to convert favicon.svg to PNG
+# 
+# Command to convert using ImageMagick:
+# magick favicon.svg -resize 16x16 favicon-16x16.png 

@@ -1,0 +1,6 @@
+# This is a placeholder for favicon.ico
+# You'll need to convert the SVG to ICO format using an online converter
+# or use a tool like ImageMagick to convert favicon.svg to favicon.ico
+# 
+# Command to convert using ImageMagick:
+# magick favicon.svg -resize 16x16,32x32,48x48 favicon.ico 
